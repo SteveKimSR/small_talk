@@ -6,8 +6,6 @@ import urllib
 import matplotlib.pyplot as plt
 import re
 
-# api 사용량 홈페이지 : https://platform.openai.com/settings/organization/billing/overview
-
 # OpenAI API 키 설정
 api_key = ''
 client = OpenAI(api_key=api_key)
@@ -21,10 +19,12 @@ def prompt_gpt(msg):
 
     return (response.choices[0].message.content)
 
+
 def extract_keywords(text):
     # Regular expression to find all keywords
     keywords = re.findall(r'\d+\.\s*(\w+)', text)
     return keywords
+
 
 def extract_sentences(text):
     # Regular expression to find all sentences without the numbers and extra spaces
@@ -33,7 +33,7 @@ def extract_sentences(text):
 
 
 def gpt(user_input, daily_temperature):
-    
+
     # input message에서 keywords 추출
     keywords = prompt_gpt(f"'{user_input.msg}' Pick out key keywords from the following sentences.\n'"
                           'When you tell me a keyword, put a number in front of each keyword. Set the starting number to 1.\n'
