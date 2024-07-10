@@ -3,6 +3,7 @@ import requests
 import cv2
 import numpy as np
 import urllib
+import matplotlib.pyplot as plt
 import re
 
 # OpenAI API 키 설정
