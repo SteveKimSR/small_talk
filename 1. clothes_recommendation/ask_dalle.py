@@ -3,7 +3,6 @@ import requests
 import cv2
 import numpy as np
 import urllib
-import matplotlib.pyplot as plt
 
 api_key = ''
 client = OpenAI(api_key=api_key)
