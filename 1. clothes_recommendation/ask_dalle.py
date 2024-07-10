@@ -4,7 +4,6 @@ import cv2
 import numpy as np
 import urllib
 
-
 api_key = ''
 client = OpenAI(api_key=api_key)
 
@@ -38,14 +37,15 @@ def dalle(user_input, recommended_clothings):
     recommended_pictures = []
 
     for i in recommended_clothings:
-        recommended_pictures.append(prompt_dalle(f"A {user_input.age}-year-old {user_input.gender} fashion model wearing a {i} in white background. Make sure all the clothes from top to bottom are shown in the picture."))
+        recommended_pictures.append(prompt_dalle(f"A {user_input.age}-year-old {user_input.gender} fashion model wearing a {
+                                    i} in white background. Make sure all the clothes from top to bottom are shown in the picture."))
 
     temp_img = np.concatenate(
         (get_image(recommended_pictures[0]), get_image(recommended_pictures[1])), axis=1)
 
     # cv2.imshow('temp', temp_img)
     cv2.imwrite(
-        './frontend/src/dallePictures/pic.png', temp_img)
+        './todo-frontend/src/dallePictures/pic.png', temp_img)
     # cv2.waitKey(0)
     # cv2.destroyAllWindows()
 
